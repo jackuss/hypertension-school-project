@@ -4,11 +4,11 @@
 */
 
 import HomeController from './controllers/HomeController';
-import NameService from './services/PersonService';
 import {UpperFilter, LowerFilter} from './filters/textFilters';
+import exampleDirective from './directives/exampleDirective';
 
 angular.module('myApp', [])
 	.controller('HomeController', HomeController)
-	.service('PersonService', NameService)
 	.filter('upper', UpperFilter)
-	.filter('lower', LowerFilter);
+	.filter('lower', LowerFilter)
+	.directive('exampleDirective', () => new exampleDirective());

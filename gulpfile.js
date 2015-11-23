@@ -3,6 +3,8 @@ var babelify = require('babelify');
 var browserify = require('browserify');
 var vinylSourceStream = require('vinyl-source-stream');
 var vinylBuffer = require('vinyl-buffer');
+var sass = require('gulp-sass');
+var concatCss = require('gulp-concat-css');
 
 // Load all gulp plugins into the plugins object.
 var plugins = require('gulp-load-plugins')();
@@ -47,6 +49,18 @@ gulp.task('libs', function() {
 		.pipe(plugins.connect.reload());
 });
 
+gulp.task('sass', function () {
+	gulp.src('./sass/**/*.scss')
+		.pipe(sass().on('error', sass.logError))
+		.pipe(gulp.dest('./css'));
+});
+
+gulp.task('concat-css', ['sass'], function () {
+	return gulp.src('css/**/*.css')
+		.pipe(concatCss("style.css"))
+		.pipe(gulp.dest('./'));
+});
+
 /* Compile all script files into one output minified JS file. */
 gulp.task('scripts', ['jshint'], function() {
 
@@ -75,7 +89,7 @@ gulp.task('scripts', ['jshint'], function() {
 
 });
 
-gulp.task('serve', ['build', 'watch'], function() {
+gulp.task('serve', ['build', 'concat-css', 'watch'], function() {
 	plugins.connect.server({
 		root: build,
 		port: 4242,
@@ -88,7 +102,8 @@ gulp.task('watch', function() {
 	gulp.watch(src.libs, ['libs']);
 	gulp.watch(src.html, ['html']);
 	gulp.watch(src.scripts.all, ['scripts']);
-})
+	gulp.watch('./sass/*.scss', ['concat-css']);
+});
 
 gulp.task('build', ['scripts', 'html', 'libs']);
 gulp.task('default', ['serve']);
