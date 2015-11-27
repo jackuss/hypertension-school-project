@@ -5,6 +5,9 @@ var vinylSourceStream = require('vinyl-source-stream');
 var vinylBuffer = require('vinyl-buffer');
 var sass = require('gulp-sass');
 var concatCss = require('gulp-concat-css');
+var rimraf = require('gulp-rimraf');
+var bowerFiles = require('main-bower-files');
+var inject = require('gulp-inject');
 
 // Load all gulp plugins into the plugins object.
 var plugins = require('gulp-load-plugins')();
@@ -33,6 +36,11 @@ gulp.task('html', function() {
 		.pipe(plugins.connect.reload());
 });
 
+gulp.task('copy-bower', function() {
+	gulp.src('./bower_components/**/*.*')
+	.pipe(gulp.dest('./build/bower_components'))
+});
+
 /* The jshint task runs jshint with ES6 support. */
 gulp.task('jshint', function() {
 	return gulp.src(src.scripts.all)
@@ -52,13 +60,23 @@ gulp.task('libs', function() {
 gulp.task('sass', function () {
 	gulp.src('./sass/**/*.scss')
 		.pipe(sass().on('error', sass.logError))
+		.pipe(concatCss("style.css"))
 		.pipe(gulp.dest('./css'));
 });
 
 gulp.task('concat-css', ['sass'], function () {
+	setTimeout(function() {}, 1000);
 	return gulp.src('css/**/*.css')
 		.pipe(concatCss("style.css"))
 		.pipe(gulp.dest('./'));
+});
+
+gulp.task('inject-bower', function() {
+	var target = gulp.src('./src/index.html');
+	var sources = gulp.src(bowerFiles(), { base: './build/bower_components' });
+
+	return target.pipe(inject(sources, {name: 'bower'}))
+	.pipe(gulp.dest('./build'));
 });
 
 /* Compile all script files into one output minified JS file. */
@@ -89,7 +107,7 @@ gulp.task('scripts', ['jshint'], function() {
 
 });
 
-gulp.task('serve', ['build', 'concat-css', 'watch'], function() {
+gulp.task('serve', ['build', 'watch'], function() {
 	plugins.connect.server({
 		root: build,
 		port: 4242,
@@ -102,8 +120,8 @@ gulp.task('watch', function() {
 	gulp.watch(src.libs, ['libs']);
 	gulp.watch(src.html, ['html']);
 	gulp.watch(src.scripts.all, ['scripts']);
-	gulp.watch('./sass/*.scss', ['concat-css']);
+	gulp.watch('./sass/*.scss', ['sass']);
 });
 
-gulp.task('build', ['scripts', 'html', 'libs']);
+gulp.task('build', ['scripts', 'html', 'libs', 'sass', 'copy-bower', 'inject-bower']);
 gulp.task('default', ['serve']);

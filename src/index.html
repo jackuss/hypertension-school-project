@@ -2,13 +2,13 @@
 <html ng-app="myApp" ng-strict-di>
 <head>
 	<title>Angular ES6 Sample</title>
-</head>
-<body ng-controller="HomeController">
-
-	Hello {{ person.name | upper }}!
-	<example-directive></example-directive>
-
-	<script src="libs/angular.min.js"></script>
+	<!-- bower:css -->
+	<!-- endinject -->
+	<!-- bower:js -->
+	<!-- endinject -->
 	<script src="scripts/app.min.js"></script>
+</head>
+<body ng-controller="HomeController as vm">
+	<div ui-view></div>
 </body>
 </html>
