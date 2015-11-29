@@ -16,8 +16,8 @@ var src = {
 	html: 'src/**/*.html',
 	libs: 'src/libs/**',
 	scripts: {
-		all: 'src/scripts/**/*.js',
-		app: 'src/scripts/app.js'
+		all: 'src/**/*.js',
+		app: 'src/app.js'
 	}
 };
 
@@ -26,7 +26,7 @@ var out = {
 	libs: build + 'libs/',
 	scripts: {
 		file: 'app.min.js',
-		folder: build + 'scripts/'
+		folder: build + '/'
 	}
 }
 
@@ -58,17 +58,10 @@ gulp.task('libs', function() {
 });
 
 gulp.task('sass', function () {
-	gulp.src('./sass/**/*.scss')
+	gulp.src('./src/**/*.scss')
 		.pipe(sass().on('error', sass.logError))
 		.pipe(concatCss("style.css"))
-		.pipe(gulp.dest('./css'));
-});
-
-gulp.task('concat-css', ['sass'], function () {
-	setTimeout(function() {}, 1000);
-	return gulp.src('css/**/*.css')
-		.pipe(concatCss("style.css"))
-		.pipe(gulp.dest('./'));
+		.pipe(gulp.dest('./build'));
 });
 
 gulp.task('inject-bower', function() {
