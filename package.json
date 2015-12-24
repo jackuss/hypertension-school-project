@@ -35,5 +35,12 @@
     "jshint-stylish": "^2.0.1",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "connect-flash": "^0.1.1",
+    "jsonwebtoken": "^5.4.1",
+    "passport": "^0.3.2",
+    "permission": "^1.0.3"
   }
 }

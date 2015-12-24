@@ -12,6 +12,8 @@ var inject = require('gulp-inject');
 // Load all gulp plugins into the plugins object.
 var plugins = require('gulp-load-plugins')();
 
+
+
 var src = {
 	html: 'src/**/*.html',
 	libs: 'src/libs/**',
@@ -110,10 +112,10 @@ gulp.task('serve', ['build', 'watch'], function() {
 });
 
 gulp.task('watch', function() {
-	gulp.watch(src.libs, ['libs']);
-	gulp.watch(src.html, ['html']);
-	gulp.watch(src.scripts.all, ['scripts']);
-	gulp.watch('./sass/*.scss', ['sass']);
+	gulp.watch(src.libs, ['build']);
+	gulp.watch(src.html, ['build']);
+	gulp.watch(src.scripts.all, ['build']);
+	gulp.watch('./src/**/*.scss', ['build']);
 });
 
 gulp.task('build', ['scripts', 'html', 'libs', 'sass', 'copy-bower', 'inject-bower']);
