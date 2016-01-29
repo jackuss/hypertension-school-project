@@ -1,6 +1,8 @@
 /*@ngInject*/
-function Routes($stateProvider, $urlRouterProvider, $locationProvider, MainService) {
+function Routes($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider.otherwise('/');
+
+    $httpProvider.interceptors.push('httpService');
 
     $stateProvider
         .state('loginPage', {
@@ -33,6 +35,6 @@ function Routes($stateProvider, $urlRouterProvider, $locationProvider, MainServi
 
 }
 
-Routes.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
+Routes.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider'];
 
 export default Routes;

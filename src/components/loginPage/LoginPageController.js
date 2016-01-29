@@ -9,9 +9,6 @@ export default class LoginPageController {
     log() {
         this.mainService.logInToApp(this.loginLog, this.passwordLog).then(response => {
             if(response.data.success) {
-                //this.httpProvider.defaults.headers.common = {'x-access-token' : response.data.token};
-                this.http.defaults.headers.common['dupa'] = 'blada';
-
                 this.state.go('userPage')
             }
         });

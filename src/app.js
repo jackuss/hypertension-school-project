@@ -2,6 +2,7 @@ import HomeController from './controllers/HomeController';
 import {UpperFilter, LowerFilter} from './filters/textFilters';
 import exampleDirective from './directives/exampleDirective';
 import MainService from './MainService';
+import HttpService from'./services/HttpService';
 import Routes from './config/config';
 
 import loginModule from './components/loginPage/LoginPageModule';
@@ -12,12 +13,10 @@ angular.module('myApp', ['ui.router', 'loginPage', 'userPage', 'ngCookies'])
     .filter('upper', UpperFilter)
     .filter('lower', LowerFilter)
     .service('MainService', MainService)
+    .factory('httpService', HttpService)
     .directive('exampleDirective', () => new exampleDirective())
     .constant('LOCALHOTST_URL', {url: 'http://localhost:3000'})
-    /*.run(MainService => {
-        //MainService.init();
-    })*/
-    .config(Routes);
-    /*.config($httpProvider => {
-        $httpProvider.defaults.headers.common = {'dupa' : 'blada'};
-    })*/
+    .config(Routes)
+    .config($httpProvider => {
+        $httpProvider.interceptors.push('httpService');
+    })

@@ -70,7 +70,7 @@ class MainService {
                 this.timeout(() => {
                     switch (this.status) {
                         case 'guest': console.log("going loginPage"); this.state.go('loginPage'); break;
-                        case 'user': this.state.go('userPage'); return this.q.reject(); break;
+                        case 'user': this.state.go('userPage'); break;
                     }
                 }, 0);
                 console.log("reject");
