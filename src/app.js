@@ -7,8 +7,9 @@ import Routes from './config/config';
 
 import loginModule from './components/loginPage/LoginPageModule';
 import userModule from './components/userPage/UserPageModule';
+import topBarModule from './controls/topBar/LkfsTopBarModule';
 
-angular.module('myApp', ['ui.router', 'loginPage', 'userPage', 'ngCookies'])
+angular.module('myApp', ['ui.router', 'loginPage', 'userPage', 'ngCookies', 'ui.bootstrap', 'topBar'])
     .controller('HomeController', HomeController)
     .filter('upper', UpperFilter)
     .filter('lower', LowerFilter)
@@ -16,7 +17,4 @@ angular.module('myApp', ['ui.router', 'loginPage', 'userPage', 'ngCookies'])
     .factory('httpService', HttpService)
     .directive('exampleDirective', () => new exampleDirective())
     .constant('LOCALHOTST_URL', {url: 'http://localhost:3000'})
-    .config(Routes)
-    .config($httpProvider => {
-        $httpProvider.interceptors.push('httpService');
-    })
+    .config(Routes);
