@@ -17,6 +17,7 @@ var plugins = require('gulp-load-plugins')();
 var src = {
 	html: 'src/**/*.html',
 	libs: 'src/libs/**',
+	images: 'src/pictures/*.jpg',
 	scripts: {
 		all: 'src/**/*.js',
 		app: 'src/app.js'
@@ -26,11 +27,16 @@ var src = {
 var build = 'build/';
 var out = {
 	libs: build + 'libs/',
+	images: build + 'images',
 	scripts: {
 		file: 'app.min.js',
 		folder: build + '/'
 	}
-}
+};
+
+gulp.task('images', function() {
+	return gulp.src(src.images).pipe(gulp.dest(out.images));
+});
 
 gulp.task('html', function() {
 	return gulp.src(src.html)
@@ -114,9 +120,10 @@ gulp.task('serve', ['build', 'watch'], function() {
 gulp.task('watch', function() {
 	gulp.watch(src.libs, ['build']);
 	gulp.watch(src.html, ['build']);
+	gulp.watch(src.images, ['build']);
 	gulp.watch(src.scripts.all, ['build']);
 	gulp.watch('./src/**/*.scss', ['build']);
 });
 
-gulp.task('build', ['scripts', 'html', 'libs', 'sass', 'copy-bower', 'inject-bower']);
+gulp.task('build', ['scripts', 'html', 'libs', 'images', 'sass', 'copy-bower', 'inject-bower']);
 gulp.task('default', ['serve']);

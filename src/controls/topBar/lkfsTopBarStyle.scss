@@ -1,13 +1,26 @@
 .lkfs-topbar-box {
-  height: 200px;
+  height: 100px;
 
   .lkfs-top-bar-banner {
     width: 30%;
-    display: inline-block;
-    line-height: 200px;
+    float: left;
+    height: 100px;
+    line-height: 100px;
+    background: silver;
   }
 
   .lkfs-top-bar-slider {
-    display: inline-block;
+    width: 69%;
+    height: inherit !important;
+    float: right;
+
+    .carousel {
+      height: 100px;
+    }
+
+    .lkfs-top-bar-slider-img {
+      max-height: 100px;
+      width: 100%;
+    }
   }
 }

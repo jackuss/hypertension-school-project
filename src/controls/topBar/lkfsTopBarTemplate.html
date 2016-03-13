@@ -1,11 +1,11 @@
 <div class="lkfs-topbar-box">
-    <div class="lkfs-top-bar-banner">
-        <h1>LOGO</h1>
+    <div class="lkfs-top-bar-banner text-center">
+        <span>LOGO</span>
     </div>
     <div class="lkfs-top-bar-slider">
-        <uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
-            <uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
-                <img ng-src="{{slide.image}}" style="margin:auto;">
+        <uib-carousel active="topBar.active" interval="topBar.interval">
+            <uib-slide ng-repeat="slide in topBar.slides track by slide.id" index="slide.id">
+                <img class="lkfs-top-bar-slider-img img-responsive" ng-src="{{slide.image}}">
                 <div class="carousel-caption">
                     <h4>Slide {{slide.id}}</h4>
                     <p>{{slide.text}}</p>
@@ -13,4 +13,5 @@
             </uib-slide>
         </uib-carousel>
     </div>
+    <pre>{{topBar.slides}}</pre>
 </div>
