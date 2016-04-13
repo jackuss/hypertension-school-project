@@ -1,0 +1,16 @@
+<div class="lkfs-members">
+    <div class="form-group">
+        <label>Filtruj:</label>
+        <input type="text" class="form-control lkfs-members-filter-input" ng-model="member.filteredMember">
+    </div>
+    <div class="lkfs-members-memberslist">
+        <div class="lkfs-members-memberbox" ng-repeat="member in members.members | filter:member.filteredMember">
+            <div class="panel panel-default">
+                <div class="panel-heading">{{member.name}}</div>
+                <div class="panel-body">
+                    <a href="" ng-click="members.showDetailsInModal(member)"><img ng-src="/images/Member.png" alt=""/></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

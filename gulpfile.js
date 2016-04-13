@@ -17,7 +17,8 @@ var plugins = require('gulp-load-plugins')();
 var src = {
 	html: 'src/**/*.html',
 	libs: 'src/libs/**',
-	images: 'src/pictures/*.jpg',
+	images: 'src/images/*.*',
+	mock: 'src/mockData/*.json',
 	scripts: {
 		all: 'src/**/*.js',
 		app: 'src/app.js'
@@ -28,6 +29,7 @@ var build = 'build/';
 var out = {
 	libs: build + 'libs/',
 	images: build + 'images',
+	mockData: build + 'mockData',
 	scripts: {
 		file: 'app.min.js',
 		folder: build + '/'
@@ -40,8 +42,12 @@ gulp.task('images', function() {
 
 gulp.task('html', function() {
 	return gulp.src(src.html)
-		.pipe(gulp.dest(build))
-		.pipe(plugins.connect.reload());
+		.pipe(gulp.dest(build));
+});
+
+gulp.task('json', function() {
+	return gulp.src(src.mock)
+		.pipe(gulp.dest(out.mockData));
 });
 
 gulp.task('copy-bower', function() {
@@ -62,14 +68,13 @@ gulp.task('libs', function() {
 	/* In a real project you of course would use npm or bower to manage libraries. */
 	return gulp.src(src.libs)
 		.pipe(gulp.dest(out.libs))
-		.pipe(plugins.connect.reload());
 });
 
 gulp.task('sass', function () {
 	gulp.src('./src/**/*.scss')
 		.pipe(sass().on('error', sass.logError))
 		.pipe(concatCss("style.css"))
-		.pipe(gulp.dest('./build'));
+		.pipe(gulp.dest('./build'))
 });
 
 gulp.task('inject-bower', function() {
@@ -120,10 +125,11 @@ gulp.task('serve', ['build', 'watch'], function() {
 gulp.task('watch', function() {
 	gulp.watch(src.libs, ['build']);
 	gulp.watch(src.html, ['build']);
-	gulp.watch(src.images, ['build']);
-	gulp.watch(src.scripts.all, ['build']);
-	gulp.watch('./src/**/*.scss', ['build']);
+	gulp.watch(src.images, ['images']);
+	gulp.watch('./src/**/*.scss', ['sass']);
+	gulp.watch(src.scripts.all, ['scripts']);
+	gulp.watch(src.mock, ['json']);
 });
 
-gulp.task('build', ['scripts', 'html', 'libs', 'images', 'sass', 'copy-bower', 'inject-bower']);
+gulp.task('build', ['scripts', 'html', 'libs', 'images', 'sass', 'copy-bower', 'inject-bower', 'json']);
 gulp.task('default', ['serve']);

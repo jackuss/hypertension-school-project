@@ -1,0 +1,41 @@
+.lkfs-members {
+  padding: 15px;
+
+  .lkfs-members-memberslist {
+    text-align: left;
+
+    .lkfs-members-memberbox {
+      display: inline-block;
+      padding: 5px;
+    }
+  }
+
+
+  .lkfs-members-filter-input {
+    width: 300px;
+    display: inline-block;
+    margin-left: 10px;
+  }
+}
+
+.lkfs-members-modal {
+
+  .modal-dialog{
+    width: 600px;
+
+    .lkfs-members-modal-description {
+      padding: 10px;
+      vertical-align: top;
+      display: inline-block;
+      width: calc(100% - 240px);
+
+      p {
+
+        span:first-child {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+}

@@ -5,12 +5,18 @@
 	<link rel="stylesheet" href="style.css">
 	<!-- bower:css -->
 	<!-- endinject -->
+	<script src="/bower_components/jquery/dist/jquery.js"></script>
 	<!-- bower:js -->
 	<!-- endinject -->
 	<script src="app.min.js"></script>
 </head>
 <body ng-controller="HomeController as vm">
 	<top-bar></top-bar>
-	<div ui-view></div>
+	<div class="side-menu">
+		<lkfs-side-menu></lkfs-side-menu>
+	</div>
+	<div class="view">
+		<div ui-view></div>
+	</div>
 </body>
 </html>

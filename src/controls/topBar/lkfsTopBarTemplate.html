@@ -3,15 +3,6 @@
         <span>LOGO</span>
     </div>
     <div class="lkfs-top-bar-slider">
-        <uib-carousel active="topBar.active" interval="topBar.interval">
-            <uib-slide ng-repeat="slide in topBar.slides track by slide.id" index="slide.id">
-                <img class="lkfs-top-bar-slider-img img-responsive" ng-src="{{slide.image}}">
-                <div class="carousel-caption">
-                    <h4>Slide {{slide.id}}</h4>
-                    <p>{{slide.text}}</p>
-                </div>
-            </uib-slide>
-        </uib-carousel>
+        <lkfs-slider></lkfs-slider>
     </div>
-    <pre>{{topBar.slides}}</pre>
 </div>

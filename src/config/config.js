@@ -1,6 +1,6 @@
 /*@ngInject*/
 function Routes($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/members');
 
     $httpProvider.interceptors.push('httpService');
 
@@ -26,6 +26,28 @@ function Routes($stateProvider, $urlRouterProvider, $locationProvider, $httpProv
                     return MainService.authenticate('user');
                 }
             }*/
+        })
+        .state('galery', {
+            url:'/galery',
+            templateUrl: "./components/galery/galeryTemplate.html",
+            controller: 'GaleryController',
+            controllerAs: 'galery'
+            /*resolve: {
+             secure: /!*@ngInject*!/function(MainService) {
+             return MainService.authenticate('user');
+             }
+             }*/
+        })
+        .state('members', {
+            url:'/members',
+            templateUrl: "./components/members/membersTemplate.html",
+            controller: 'MembersController',
+            controllerAs: 'members'
+            /*resolve: {
+             secure: /!*@ngInject*!/function(MainService) {
+             return MainService.authenticate('user');
+             }
+             }*/
         });
 
     $locationProvider.html5Mode({
