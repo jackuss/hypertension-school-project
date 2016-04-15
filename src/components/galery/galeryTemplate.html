@@ -1,9 +1,11 @@
 <div class="lkfs-gallery">
-    <div class="text-center">
-        <span ng-click="galery.left()" class="lkfs-galery-changeicon"><i class="glyphicon glyphicon-chevron-left"></i></span>
-        <img ng-src="{{galery.images[galery.imageIndex].url}}" alt="">
-        <span ng-click="galery.right()" class="lkfs-galery-changeicon"><i class="glyphicon glyphicon-chevron-right"></i></span>
-    </div>
+    <div class="form-group lkfs-gallery-select">
+        <label for="">Wybierz galerie:</label>
+        <select class="form-control" ng-model="galery.selectedItem" ng-change="" ng-options="item as item.label for item in galery.selectData track by item.id"></select>
+        <div class="lkfs-gallery-miniatures">
+            <ng-gallery images="galery.images[galery.selectedItem.id]"></ng-gallery>
+        </div>
 
+    </div>
 
 </div>

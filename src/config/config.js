@@ -1,8 +1,10 @@
 /*@ngInject*/
 function Routes($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
-    $urlRouterProvider.otherwise('/members');
+    $urlRouterProvider.when('/', '/members');
+    //$urlRouterProvider.ot('/', '/members');
 
     $httpProvider.interceptors.push('httpService');
+    $urlRouterProvider.otherwise('/members');
 
     $stateProvider
         .state('loginPage', {
@@ -50,10 +52,10 @@ function Routes($stateProvider, $urlRouterProvider, $locationProvider, $httpProv
              }*/
         });
 
-    $locationProvider.html5Mode({
+    $/*locationProvider.html5Mode({
         enabled: true,
         requireBase: false
-    });
+    });*/
 
 }
 

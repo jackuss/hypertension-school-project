@@ -14,7 +14,7 @@ import lkfsSliderModule from './controls/lkfsSlider/LkfsSliderModule';
 import lkfsSideMenu from './controls/lkfsSideMenu/LkfsSideMenuModule';
 import ModalService from './api/ModalService';
 
-angular.module('myApp', ['ui.router', 'loginPage', 'galery', 'members', 'userPage', 'ngCookies', 'ui.bootstrap', 'topBar', 'lkfsSlider', 'lkfsSideMenu'])
+angular.module('myApp', ['ui.router', 'loginPage', 'galery', 'members', 'userPage', 'ngCookies', 'ui.bootstrap', 'topBar', 'lkfsSlider', 'lkfsSideMenu', 'jkuri.gallery'])
     .controller('HomeController', HomeController)
     .filter('upper', UpperFilter)
     .filter('lower', LowerFilter)

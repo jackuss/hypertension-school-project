@@ -1,6 +1,33 @@
 .lkfs-gallery {
   padding: 15px;
 
+  .lkfs-gallery-select {
+    select {
+      width: 300px;
+      margin-bottom: 15px;
+    }
+  }
+
+  .lkfs-gallery-miniatures {
+    padding-left: 50px;
+
+    .ng-gallery {
+
+      div {
+        display: inline-block;
+
+        img {
+          float: none;
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  .ng-thumb {
+    height: 100px;
+  }
+
   .lkfs-galery-changeicon {
     cursor: pointer;
     font-size: 40px;
