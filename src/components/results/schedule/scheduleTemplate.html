@@ -1,0 +1,24 @@
+<div class="lkfs-schedule">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Data</th>
+            <th class="text-center">Godzina</th>
+            <th>Nazwa</th>
+            <th class="text-center">Typ</th>
+            <th class="text-center">Wpisowe</th>
+            <th class="text-center">Zapisz się</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="row in schedule.data">
+            <td>{{row.dateStart}}</td>
+            <td class="text-center">20:00</td>
+            <td>{{row.name}}</td>
+            <td class="text-center">{{row.type}}</td>
+            <td class="text-center">{{row.fee}}</td>
+            <td class="text-center"><span class="lkfs-schedule-sign-in-icon"><i class="fa fa-sign-in"></i></span></td>
+        </tr>
+        </tbody>
+    </table>
+</div>

@@ -9,9 +9,10 @@ export default class LkfsTopBarController {
 
 
     initSlides() {
+        console.log('dupa blada')
         for(var i = 1; i < 5; i++) {
             this.slides.push({
-                image: 'http://dummyimage.com/900x100/000/fff.jpg&text=image+' + i,
+                image: 'http://dummyimage.com/600x150/000/fff.jpg&text=image+' + i,
                 id: i
             });
         }

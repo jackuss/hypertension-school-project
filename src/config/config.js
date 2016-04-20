@@ -50,6 +50,17 @@ function Routes($stateProvider, $urlRouterProvider, $locationProvider, $httpProv
              return MainService.authenticate('user');
              }
              }*/
+        })
+        .state('results', {
+            url:'/results',
+            templateUrl: "./components/results/resultsTemplate.html",
+            controller: 'ResultsController',
+            controllerAs: 'results'
+            /*resolve: {
+             secure: /!*@ngInject*!/function(MainService) {
+             return MainService.authenticate('user');
+             }
+             }*/
         });
 
     $/*locationProvider.html5Mode({

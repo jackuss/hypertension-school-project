@@ -71,7 +71,7 @@ gulp.task('libs', function() {
 });
 
 gulp.task('sass', function () {
-	gulp.src('./src/**/*.scss')
+	gulp.src('./src/**/**/*.scss')
 		.pipe(sass().on('error', sass.logError))
 		.pipe(concatCss("style.css"))
 		.pipe(gulp.dest('./build'))

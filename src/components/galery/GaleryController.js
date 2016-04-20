@@ -26,10 +26,14 @@ export default class GaleryController {
         }
 
         this.selectData.push({label: "--wybierz--", id: -1});
-        this.selectData.push({label: "Liga styczeñ 2016", id: 0});
+        this.selectData.push({label: "Liga styczeÅ„ 2016", id: 0});
         this.selectData.push({label: "Liga luty 2016", id: 1});
 
         this.selectedItem = this.selectData[0];
+    }
+
+    showGalery() {
+        return (this.selectedItem.id !== -1);
     }
 
 

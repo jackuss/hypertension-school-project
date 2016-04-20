@@ -12,13 +12,13 @@ export default class LkfsSliderController {
     init() {
         for(var i = 1; i < 5; i++) {
             this.slides.push({
-                image: 'http://dummyimage.com/900x100/000/fff.jpg&text=image+' + i,
+                image: 'http://dummyimage.com/600x150/000/fff.jpg&text=image+' + i,
                 id: i
             });
         }
 
         this.initSlide = {
-            image: "http://dummyimage.com/900x100/000/fff.jpg&text=image+0",
+            image: "http://dummyimage.com/600x150/000/fff.jpg&text=image+0",
             id: 0
         }
     }

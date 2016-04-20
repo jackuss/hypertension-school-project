@@ -2,8 +2,11 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/allegro.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/components/galery/GaleryController.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/components/galery/galeryTemplate.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/components/members/modals/memberModalTemplate.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/components/results/schedule/scheduleTemplate.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/mockData/mockMembers.json" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/mockData/mockSchedule.json" charset="UTF-8" />
   </component>
 </project>
