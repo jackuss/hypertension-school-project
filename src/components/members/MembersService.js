@@ -8,7 +8,7 @@ class MembersService {
     getMembers() {
         var d = this.q.defer();
 
-        this.http.get('/mockData/mockMembers.json').then(response => {
+        this.http.get('http://localhost:3000/members').then(response => {
             d.resolve(response.data);
         }, error => {
             console.log("Error, cannot get members data !");

@@ -15,11 +15,16 @@
 </head>
 <body>
 	<top-bar></top-bar>
-	<div class="side-menu">
-		<lkfs-side-menu></lkfs-side-menu>
+	<div class="content">
+		<div class="side-menu">
+			<lkfs-side-menu></lkfs-side-menu>
+		</div>
+		<div class="main-content">
+			<div class="view" ui-view></div>
+		</div>
 	</div>
-	<div class="view">
-		<div ui-view></div>
+	<div class="footer text-center">
+		LKFS
 	</div>
 </body>
 </html>

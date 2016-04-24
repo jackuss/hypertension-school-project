@@ -1,0 +1,24 @@
+.lkfs-side-menu {
+
+  .lkfs-side-menu-box {
+
+    .lkfs-side-menu-item {
+      padding: 10px;
+      display: block;
+      //line-height: 30px;
+      vertical-align: middle;
+      cursor: pointer;
+      border-top: 1px solid #ddd;
+    }
+
+    .lkfs-side-menu-icon {
+      padding-right: 10px;
+      color: #57617F;
+
+    }
+
+    .lkfs-side-menu-item:last-child {
+      border-bottom: 1px solid #ddd;
+    }
+  }
+}

@@ -1,7 +1,5 @@
-<div>
-    <ul>
-        <li ng-repeat="item in menu.items">
-            <a href="" ui-sref="{{item.state}}">{{item.name}}</a>
-        </li>
-    </ul>
+<div class="lkfs-side-menu">
+    <div class="lkfs-side-menu-box">
+        <span href="" ui-sref="{{item.state}}" class="lkfs-side-menu-item" ng-repeat="item in menu.items"><span class="lkfs-side-menu-icon"><i class="{{item.icon}}"></i></span>{{item.name}}</span>
+    </div>
 </div>
