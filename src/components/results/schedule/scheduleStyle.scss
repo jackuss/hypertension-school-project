@@ -1,7 +1,42 @@
+@import '../../../varsAndMixinsStyle';
+
 .lkfs-schedule {
 
-  .lkfs-schedule-sign-in-icon {
-    font-size: 16px;
+  .lkfs-schedule-details-link {
     cursor: pointer;
+    color: #003366;
+    font-size: 18px;
+    @extend .lkfs-icon-default-style;
+  }
+}
+
+.lkfs-modal-schedule {
+
+  .modal-dialog {
+    width: 600px;
+
+    .lkfs-modal-schedule-fee-column {
+      text-align: center;
+
+      .lkfs-modal-schedule-fee-icon {
+        cursor: pointer;
+        @extend .lkfs-icon-default-style;
+      }
+    }
+    .lkfs-modal-schedule-tooltip {
+
+      .tooltip-table {
+        color: black;
+        margin: 0;
+        width: 150px;
+
+        tr {
+
+          td {
+            border: 0 !important;
+          }
+        }
+      }
+    }
   }
 }

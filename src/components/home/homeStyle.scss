@@ -1,0 +1,6 @@
+@import '../../varsAndMixinsStyle';
+
+.lkfs-home {
+  @include default-view();
+  padding: 15px;
+}

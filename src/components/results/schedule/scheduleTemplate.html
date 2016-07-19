@@ -2,22 +2,18 @@
     <table class="table">
         <thead>
         <tr>
-            <th>Data</th>
-            <th class="text-center">Godzina</th>
-            <th>Nazwa</th>
-            <th class="text-center">Typ</th>
-            <th class="text-center">Wpisowe</th>
-            <th class="text-center">Zapisz się</th>
+            <th class="col-md-2">Data</th>
+            <th class="text-center col-md-2">Godzina rozpoczęcia</th>
+            <th class="col-md-7">Nazwa</th>
+            <th class="text-center col-md-1">Szczegóły</th>
         </tr>
         </thead>
         <tbody>
         <tr ng-repeat="row in schedule.data">
-            <td>{{row.dateStart}}</td>
-            <td class="text-center">20:00</td>
+            <td>{{row.date | lkfsDate}}</td>
+            <td class="text-center">{{row.startTime | lkfsTime}}</td>
             <td>{{row.name}}</td>
-            <td class="text-center">{{row.type}}</td>
-            <td class="text-center">{{row.fee}}</td>
-            <td class="text-center"><span class="lkfs-schedule-sign-in-icon"><i class="fa fa-sign-in"></i></span></td>
+            <td class="text-center"><span class="lkfs-schedule-details-link" ng-click="schedule.showDetails(row)"><i class="glyphicon glyphicon-info-sign"></i></span></td>
         </tr>
         </tbody>
     </table>

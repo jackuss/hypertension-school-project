@@ -1,9 +1,16 @@
 html {
   overflow-y: scroll;
+  height: 100%;
 }
 
 body {
   background-color: #E9EAED !important;
+  height: 100%;
+  //position: relative;
+  display: table;
+  vertical-align: bottom;
+  width: 100%;
+  padding: 0 !important;
 
   @media all and (max-width: 1439px) {
     margin: 0 !important;
@@ -12,17 +19,18 @@ body {
   .content {
     width: 100%;
     display: table;
+    margin-bottom: 10px;
   }
 
   .side-menu {
     width: 15%;
     display: table-cell;
     //padding-top: 10px;
-    border: 1px solid;
+    //border: 1px solid;
     vertical-align: top;
-    border-color: #e5e6e9 #dfe0e4 #d0d1d5;
-    border-radius: 3px;
-    background-color: #FBFCFF;
+    //border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+    //border-radius: 3px;
+    //background-color: #FBFCFF;
     //background-image: url("http://api.thumbr.it/whitenoise-30x30.png?background=#f0f0f500&noise=626262&density=38&opacity=29");
   }
 
@@ -31,21 +39,26 @@ body {
     width: 84%;
 
     .view {
-      background-color: #FBFCFF;
+      //background-color: #FBFCFF;
       margin: 0 80px !important;
-      border: 1px solid;
+      /*border: 1px solid;
       border-color: #e5e6e9 #dfe0e4 #d0d1d5;
-      border-radius: 3px;
+      border-radius: 3px;*/
     }
   }
 
   .footer {
+    height: 10px;
+    display: table-row;
     margin-top: 10px;
     clear: both;
     background-color: #FBFCFF;
     border: 1px solid;
     border-color: #e5e6e9 #dfe0e4 #d0d1d5;
     border-radius: 3px;
+    //position: absolute;
+   // bottom: 0;
+    width: 100%;
   }
 }
 
@@ -72,5 +85,58 @@ body {
 
   .panel-body {
     //background-color: #C9C9CC !important;
+  }
+}
+
+.nav {
+
+  &> li {
+
+    &> a:hover {
+      border-color: transparent !important;
+      background-color: transparent !important;
+    }
+  }
+}
+
+.nav-tabs {
+  border-bottom: 0 !important;
+
+  .nav-item {
+
+    &.active {
+
+      .nav-link {
+
+        text-decoration: none;
+        background-color: #FBFCFF;
+        border-left: 0;
+        border-right: 0;
+        border-top: 0;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+
+        &:hover {
+          background-color: #FBFCFF !important;
+        }
+      }
+    }
+  }
+}
+
+.table {
+
+  th {
+    border-top: 0 !important;
+  }
+}
+
+.tooltip {
+  opacity: 1 !important;
+
+  .tooltip-inner {
+    padding: 0 !important;
+    border: 2px solid black;
+    max-width: 400px;
   }
 }

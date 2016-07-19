@@ -1,8 +1,61 @@
+@import '../../varsAndMixinsStyle';
+
 .lkfs-results {
-  background-color: white !important;
+  background-color: #E9EAED !important;
+  border: 0 !important;
 
   .lkfs-results-view {
-    background-color: #f0f0f5;
+    @include default-view();
+    border-top-left-radius: 0;
+    border-top: 0 !important;
+    border-left: 0;
+    background-color: #FBFCFF;
     padding: 15px;
+
+    .lkfs-results-tab {
+
+      .lkfs-results-tab-header-name {
+        display: inline-block;
+        width: 80%;
+        padding-left: 11px;
+      }
+
+      .lkfs-results-tab-header-date {
+        display: inline-block;
+        width: 10%;
+        position: relative;
+        right: 11px;
+        text-align: center;
+      }
+
+      .panel {
+        border-radius: 0;
+
+        .panel-heading {
+          background-color: #E9EAED !important;
+          border-bottom-color: #57617F;
+          color: black !important;
+          border-radius: 0;
+          padding: 0;
+        }
+
+        .lkfs-results-tab-accorion-header {
+          padding: 10px;
+
+          .lkfs-results-tab-content-name {
+            display: inline-block;
+            width: 80%;
+          }
+
+          .lkfs-results-tab-content-date {
+            display: inline-block;
+            width: 10%;
+            text-align: center;
+          }
+        }
+
+
+      }
+    }
   }
 }

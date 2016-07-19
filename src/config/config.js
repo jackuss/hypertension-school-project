@@ -7,22 +7,11 @@ function Routes($stateProvider, $urlRouterProvider, $locationProvider, $httpProv
     $urlRouterProvider.otherwise('/members');
 
     $stateProvider
-        .state('loginPage', {
-            url: '/',
-            templateUrl: './components/loginPage/loginPageTemplate.html',
-            controller: 'LoginPageController',
-            controllerAs: 'logPage',
-            /*resolve: {
-                secure: /!*@ngInject*!/function(MainService) {
-                    return MainService.authenticate('guest');
-                }
-            }*/
-        })
-        .state('userPage', {
+        .state('home', {
             url:'/app',
-            templateUrl: "./components/userPage/userPageTemplate.html",
-            controller: 'UserPageController',
-            controllerAs: 'userPage',
+            templateUrl: "./components/home/homeTemplate.html",
+            controller: 'HomeController',
+            controllerAs: 'home'
             /*resolve: {
                 secure: /!*@ngInject*!/function(MainService) {
                     return MainService.authenticate('user');
@@ -56,6 +45,17 @@ function Routes($stateProvider, $urlRouterProvider, $locationProvider, $httpProv
             templateUrl: "./components/results/resultsTemplate.html",
             controller: 'ResultsController',
             controllerAs: 'results'
+            /*resolve: {
+             secure: /!*@ngInject*!/function(MainService) {
+             return MainService.authenticate('user');
+             }
+             }*/
+        })
+        .state('contact', {
+            url:'/contact',
+            templateUrl: "./components/contact/contactTemplate.html",
+            controller: 'ContactController',
+            controllerAs: 'contact'
             /*resolve: {
              secure: /!*@ngInject*!/function(MainService) {
              return MainService.authenticate('user');

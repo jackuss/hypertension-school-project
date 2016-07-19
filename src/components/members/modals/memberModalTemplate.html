@@ -1,19 +1,20 @@
 <div class="modal-header">
-    <div class="modal-title">{{modal.data.name}}</div>
+    <div class="modal-title">{{modal.data.firstName}} {{modal.data.lastName}}</div>
     <span class="pull-right modal-close-icon" ng-click="modal.close()"><i class="glyphicon glyphicon-remove-circle"></i></span>
 </div>
 <div class="modal-body">
     <img ng-src="/images/Member.png" alt="">
     <div class="lkfs-members-modal-description">
-        <p><span>Imię i nazwisko:</span> <span>{{modal.data.name}}</span></p>
+        <p><span>Imię i nazwisko:</span> <span>{{modal.data.firstName}} {{modal.data.lastName}}</span></p>
         <p><span>Data urodzenia:</span> <span>{{modal.data.birthDate | date: 'MM.dd.yyyy'}}</span></p>
         <p>
             <span>Sukcesy:</span>
             <ul>
-                <li ng-repeat="succes in modal.data.successes">
-                    {{succes}}
+                <li ng-repeat="achievements in modal.data.achievements">
+                    {{achievements.achievement}}
                 </li>
             </ul>
         </p>
     </div>
+    <pre>{{modal.data}}</pre>
 </div>

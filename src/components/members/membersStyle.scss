@@ -1,4 +1,7 @@
+@import '../../varsAndMixinsStyle';
+
 .lkfs-members {
+  @include default-view();
   padding: 15px;
 
   .lkfs-members-memberslist {

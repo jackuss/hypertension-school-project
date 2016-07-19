@@ -1,5 +1,9 @@
+@import '../../varsAndMixinsStyle';
+
 .lkfs-gallery {
+  @include default-view();
   padding: 15px;
+
 
   .lkfs-gallery-select {
     select {

@@ -10,7 +10,14 @@ class MembersController {
 
     init() {
         this.memberService.getMembers().then(data => {
-            this.members = data;
+            this.members = angular.copy(data);
+
+            for (var i = 0; i < this.members.length; i++) {
+                this.members[i].achievements = [];
+                this.memberService.getAchievements(this.members[i].id, i).then(achievements => {
+                    this.members[achievements.index].achievements = achievements.data;
+                });
+            }
         });
     }
 

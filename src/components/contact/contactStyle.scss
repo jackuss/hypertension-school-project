@@ -1,0 +1,17 @@
+@import '../../varsAndMixinsStyle';
+
+.lkfs-contact {
+  @include default-view();
+  padding: 15px;
+
+  .lkfs-contact-reason-select {
+    width: 300px;
+    display: inline-block;
+    margin-left: 10px;
+  }
+
+  .lkfs-contact-submit-contact-button {
+    margin-top: 20px;
+    text-align: right;
+  }
+}

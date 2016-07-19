@@ -1,0 +1,29 @@
+<div class="modal-header">
+    <div class="modal-title">{{modal.data.name}} | {{modal.data.date | lkfsDate}} | {{modal.data.startTime | lkfsTime}}</div>
+    <span class="pull-right modal-close-icon" ng-click="modal.close()"><i class="glyphicon glyphicon-remove-circle"></i></span>
+</div>
+<div class="modal-body">
+    <!--<div ng-if="modal.data.freeEntry">
+        <h4>Turniej darmowy</h4>
+        <p>Konkurencje:</p>
+        <ul>
+            <li ng-repeat="competition in modal.data.competitions">{{competition.competitionName}}</li>
+        </ul>
+    </div>-->
+    <div>
+        <table class="table">
+            <tr>
+                <th>Konkurencja</th>
+                <th>Sart</th>
+                <th class="text-center">Wpisowe</th>
+            </tr>
+            <tr ng-repeat="competition in modal.modalData">
+                <td>{{competition.competition}}</td>
+                <td>{{competition.startTime | lkfsTime}}</td>
+                <td class="lkfs-modal-schedule-fee-column">
+                    <span class="lkfs-modal-schedule-fee-icon"><i class="fa fa-money" uib-tooltip-template="'/components/results/schedule/scheduleDetailsModal/scheduleFeeTemplate.html'" tooltip-placement="right-top" tooltip-trigger="mouseenter"></i></span>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

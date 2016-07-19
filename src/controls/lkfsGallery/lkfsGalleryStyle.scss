@@ -1,0 +1,25 @@
+.lkfs-gallery-directive {
+    text-align: center;
+
+    .lkfs-gallery-directive-image {
+      display: inline-block;
+      padding: 10px;
+
+      img {
+        width: 300px;
+        height: 200px;
+        cursor: pointer;
+      }
+    }
+}
+
+.lkfs-gallery-modal {
+
+  .modal-dialog{
+    width: 750px;
+
+    .lkfs-gallery-modal-body {
+      text-align: center;
+    }
+  }
+}

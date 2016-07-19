@@ -15,13 +15,13 @@ export default class GaleryController {
         for (var i = 0; i < 20; i++) {
             this.images[0].push({
                 thumb: 'http://dummyimage.com/700x500/000/fff.jpg&text=styczen+' + i,
-                img: 'http://dummyimage.com/700x500/000/fff.jpg&text=styczen+' + i,
-                description: 'adsa'
+                href: 'http://dummyimage.com/700x500/000/fff.jpg&text=styczen+' + i,
+                description: 'opis'
             });
             this.images[1].push({
                 thumb: 'http://dummyimage.com/700x500/000/fff.jpg&text=luty+' + i,
-                img: 'http://dummyimage.com/700x500/000/fff.jpg&text=luty+' + i,
-                description: 'adsa'
+                href: 'http://dummyimage.com/700x500/000/fff.jpg&text=luty+' + i,
+                description: 'opis'
             });
         }
 

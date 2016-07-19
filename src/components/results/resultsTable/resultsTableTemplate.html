@@ -1,1 +1,34 @@
-RESULT TABLE
+<div class="lkfs-results-tab">
+    <div>
+        <div class="lkfs-results-tab-header-name">Turniej</div>
+        <div class="lkfs-results-tab-header-date text-right">Data</div>
+    </div>
+    <uib-accordion>
+        <uib-accordion-group ng-repeat="row in resultsTable.data">
+            <uib-accordion-heading>
+                <div class="lkfs-results-tab-accorion-header" ng-click="resultsTable.getDetails()">
+                    <div class="lkfs-results-tab-content-name">{{row.name}}</div><!--
+                    --><div class="lkfs-results-tab-content-date text-right">{{row.date | lkfsDate}}</div>
+                </div>
+            </uib-accordion-heading>
+            <uib-tabset>
+                <uib-tab heading="{{result.type}}" ng-repeat="result in resultsTable.details">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Miejsce</th>
+                                <th>Zawodnik/cy</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="details in result.results">
+                                <td class="col-md-1 text-center">{{details.place}}</td>
+                                <td class="col-md-10">{{details.player}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </uib-tab>
+            </uib-tabset>
+        </uib-accordion-group>
+    </uib-accordion>
+</div>

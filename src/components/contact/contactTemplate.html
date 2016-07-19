@@ -1,0 +1,13 @@
+<div class="lkfs-contact">
+    <uib-alert ng-repeat="alert in contact.alerts" type="{{alert.type}}" close="contact.closeAlert($index)">{{alert.message}}</uib-alert>
+    <div class="form-group">
+        <label>Wybierz temat: </label>
+        <select class="form-control lkfs-contact-reason-select" ng-model="contact.selectedItem" ng-change="" ng-options="item as item.label for item in contact.reasons track by item.id"></select>
+    </div>
+    <div>
+        <textarea class="form-control" ng-model="contact.message" rows="10" placeholder="Wpisz treść wiadomości..."></textarea>
+    </div>
+    <div class="lkfs-contact-submit-contact-button">
+        <button class="btn btn-success" ng-click="contact.sendMessage()">Wyślij wiadomość</button>
+    </div>
+</div>
